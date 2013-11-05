@@ -16,7 +16,7 @@
 
             <td><g:link action="show" id="${employeeInstance.id}">${fieldValue(bean: employeeInstance, field: "fullName")}</g:link></td>
 
-            <td><g:formatDate date="${employeeInstance.startDate}" /></td>
+            <td><g:formatDate date="${employeeInstance.startDate}" format="MM/dd/yyyy"/></td>
 
             <td>${fieldValue(bean: employeeInstance, field: "holidayAllowance")}</td>
 

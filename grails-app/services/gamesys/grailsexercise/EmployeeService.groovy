@@ -8,7 +8,7 @@ class EmployeeService {
      * @param params
      * @return
      */
-    def listByStarDateBetween(params) {
+    def listByStartDateBetween(params) {
         def results = [:]
 
         if (!params.sort) params.remove('sort')

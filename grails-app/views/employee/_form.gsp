@@ -13,7 +13,10 @@
 		<g:message code="employee.startDate.label" default="Start Date" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="startDate" precision="day"  value="${employeeInstance?.startDate}"  />
+    <input type="text" id="datepicker1" name="startDate" value="${g.formatDate(date:employeeInstance?.startDate,format:'MM/dd/yyyy')}" required=""/>
+    <script>
+        jQuery( "#datepicker1" ).datepicker();
+    </script>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: employeeInstance, field: 'holidayAllowance', 'error')} required">

@@ -55,5 +55,6 @@ grails.project.dependency.resolution = {
         compile ':cache:1.0.0'
 
         compile ':spring-security-core:2.0-RC2'
+        test ":spock:0.7"
     }
 }

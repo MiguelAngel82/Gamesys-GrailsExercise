@@ -14,11 +14,11 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
-        <link rel="stylesheet" href="${resource(dir: 'css', file: 'datepicker.css')}" type="text/css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <g:javascript library="jquery" plugin="jquery"/>
         <g:layoutHead/>
 		<r:layoutResources />
-        <g:javascript src="bootstrap-datepicker.js"/>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <script>
             jQuery.noConflict();
         </script>
@@ -26,7 +26,11 @@
 	<body>
 		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
         <sec:ifLoggedIn>
-            <g:link controller='logout'>Logout</g:link>
+            <div class="nav" role="navigation">
+                <ul>
+                    <li><g:link class="logout" controller='logout'>Logout</g:link></li>
+                </ul>
+            </div>
         </sec:ifLoggedIn>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>

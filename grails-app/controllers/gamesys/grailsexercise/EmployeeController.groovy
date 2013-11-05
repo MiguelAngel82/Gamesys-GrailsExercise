@@ -18,7 +18,9 @@ class EmployeeController {
         params.max = Math.min(max ?: 10, 100)
         def results
         if (params.remote){
-            results = employeeService.listByStarDateBetween(params)
+            params.startDateFrom = params.date('startDateFrom')
+            params.startDateTo = params.date('startDateTo')
+            results = employeeService.listByStartDateBetween(params)
             render(template: 'listTemplate',model: [employeeInstanceList: results.employeeInstanceList, employeeInstanceTotal: results.employeeInstanceTotal,
                     max: max , sort: params.sort, order: params.order])
         }
@@ -37,6 +39,7 @@ class EmployeeController {
     @Secured(['ROLE_HR'])
     def save() {
         params.fullName = params.fullName.toUpperCase()
+        params.startDate = params.date('startDate')
         def employeeInstance = new Employee(params)
         if (!employeeInstance.save(flush: true)) {
             render(view: "create", model: [employeeInstance: employeeInstance])
@@ -71,7 +74,7 @@ class EmployeeController {
         [employeeInstance: employeeInstance]
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_HR'])
     def update(Long id, Long version) {
         def employeeInstance = Employee.get(id)
         if (!employeeInstance) {
@@ -89,7 +92,8 @@ class EmployeeController {
                 return
             }
         }
-
+        params.fullName = params.fullName.toUpperCase()
+        params.startDate = params.date('startDate')
         employeeInstance.properties = params
 
         if (!employeeInstance.save(flush: true)) {
@@ -101,7 +105,7 @@ class EmployeeController {
         redirect(action: "show", id: employeeInstance.id)
     }
 
-    @Secured(['ROLE_ADMIN'])
+    @Secured(['ROLE_HR'])
     def delete(Long id) {
         def employeeInstance = Employee.get(id)
         if (!employeeInstance) {

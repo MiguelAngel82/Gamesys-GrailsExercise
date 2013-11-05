@@ -184,7 +184,7 @@ img {
 	text-decoration: underline;
 }
 
-.nav a.home, .nav a.list, .nav a.create {
+.nav a.home, .nav a.list, .nav a.create,  .nav a.logout{
 	background-position: 0.7em center;
 	background-repeat: no-repeat;
 	text-indent: 25px;
@@ -201,6 +201,11 @@ img {
 .nav a.create {
 	background-image: url(../images/skin/database_add.png);
 }
+
+.nav a.logout {
+    background-image: url(../images/skin/icon_grey_logout.png);
+}
+
 
 /* CREATE/EDIT FORMS AND SHOW PAGES */
 
@@ -567,7 +572,7 @@ th:hover, tr:hover {
 	text-decoration: underline;
 }
 
-.buttons .delete, .buttons .edit, .buttons .save {
+.buttons .delete, .buttons .edit, .buttons .save, .buttons .search{
 	background-position: 0.7em center;
 	background-repeat: no-repeat;
 	text-indent: 25px;

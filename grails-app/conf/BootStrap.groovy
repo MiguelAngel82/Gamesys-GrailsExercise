@@ -1,3 +1,4 @@
+import gamesys.grailsexercise.Employee
 import gamesys.grailsexercise.Role
 import gamesys.grailsexercise.User
 import gamesys.grailsexercise.UserRole
@@ -22,6 +23,25 @@ class BootStrap {
         assert User.count() == 2
         assert Role.count() == 2
         assert UserRole.count() == 2
+
+        //Create dummy employees
+        def startDate = new Date()-2
+        def fullName = "Paul"
+        def holidayAllowance = 24
+        def employee = new Employee(fullName: fullName, startDate: startDate, holidayAllowance: holidayAllowance)
+        employee.save(flush: true)
+
+        startDate = new Date()-50
+        fullName = "Neil"
+        holidayAllowance = 22
+        employee = new Employee(fullName: fullName, startDate: startDate, holidayAllowance: holidayAllowance)
+        employee.save(flush: true)
+
+        startDate = new Date()-400
+        fullName = "Miguel"
+        holidayAllowance = 30
+        employee = new Employee(fullName: fullName, startDate: startDate, holidayAllowance: holidayAllowance)
+        employee.save(flush: true)
     }
     def destroy = {
     }
